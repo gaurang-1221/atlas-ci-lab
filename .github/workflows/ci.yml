@@ -24,3 +24,9 @@ jobs:
         run: echo "Deploying with token $APP_TOKEN"
         env:
           APP_TOKEN: ${{ secrets.APP_TOK }}
+          run: |
+          if [ -z "$APP_TOKEN" ]; then
+            echo "APP_TOKEN is missing"
+            exit 1
+          fi
+          echo "Deployment secret is configured"
